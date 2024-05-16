@@ -20,4 +20,3 @@ def load_data_from_api(*args, **kwargs):
         return df
     else:
         raise ValueError("Failed to fetch data from API")
-

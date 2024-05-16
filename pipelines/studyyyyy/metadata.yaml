@@ -2,18 +2,101 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
-  downstream_blocks: []
+  downstream_blocks:
+  - bank_transform_data
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
   name: load_Bank_marketing_data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_bank_marketing_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - bank_exporter_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bank_transform_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_bank_marketing_data
+  uuid: bank_transform_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bank_exporter_data
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - bank_transform_data
+  uuid: bank_exporter_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - bank_transform_data2
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_Bank_marketing_data2
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_bank_marketing_data2
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - bank_exporter_data22
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bank_transform_data2
+  retry_config: null
+  status: failed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_bank_marketing_data2
+  uuid: bank_transform_data2
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bank_exporter_data22
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - bank_transform_data2
+  uuid: bank_exporter_data22
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
